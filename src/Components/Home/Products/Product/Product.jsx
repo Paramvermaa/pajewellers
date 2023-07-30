@@ -1,6 +1,7 @@
 import React from "react";
 import "./Product.scss";
 import prod from "../../../../Assets/My project-2.png";
+import { Link } from "react-router-dom";
 function Product() {
   return (
     <div className="productCard">
