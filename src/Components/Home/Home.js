@@ -2,6 +2,7 @@ import React from "react";
 import "./Home.scss";
 import Hero from "./Hero/Hero";
 import Category from "./Category/Category";
+import Products from "./Products/Products";
 function Home() {
   return (
     <div className="home">
@@ -9,6 +10,7 @@ function Home() {
       <div className="mainContent">
         <div className="layout">
           <Category />
+          <Products headingText="Popular Products" />
         </div>
       </div>
     </div>

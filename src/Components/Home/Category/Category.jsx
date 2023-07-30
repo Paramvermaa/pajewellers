@@ -1,5 +1,5 @@
 import React from "react";
-import cat1 from "../../../Assets/cat-1.jpg";
+import cat1 from "../../../Assets/IMG_3826.jpeg";
 import "./Category.scss";
 function Category() {
   return (
