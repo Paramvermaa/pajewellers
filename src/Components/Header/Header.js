@@ -7,9 +7,11 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { Context } from "../../Utils/Content";
 import "./Header.scss";
 import Cart from "../Cart/Cart";
+import Search from "./Search/Search";
 function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [showCart, setShowCart] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
   const handleScroll = () => {
     const offset = window.scrollY;
     if (offset > 200) {
@@ -36,7 +38,7 @@ function Header() {
             </p>
           </div>
           <div className="right">
-            <TbSearch />
+            <TbSearch onClick={() => setShowSearch(true)} />
             <AiOutlineHeart />
             <span className="cartIcon" onClick={() => setShowCart(true)}>
               <CgShoppingCart />
@@ -46,6 +48,7 @@ function Header() {
         </div>
       </header>
       {showCart && <Cart setShowCart={setShowCart} />}
+      {showSearch && <Search setShowSearch={setShowSearch} />}
     </>
   );
 }

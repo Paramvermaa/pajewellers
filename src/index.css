@@ -6,10 +6,15 @@
   font-family: "Cabin", sans-serif;
   scroll-behavior: smooth;
 }
+@font-face {
+  font-family: gilroy;
+  src: url(./Assets/Gilroy-Regular.ttf);
+}
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-ont-font-smoothing: grayscale;
   font-size: 16px;
   line-height: 22px;
   font-weight: 500;
+  font-family: gilroy;
 }
