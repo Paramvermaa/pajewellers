@@ -9,6 +9,7 @@ import "./Header.scss";
 import Cart from "../Cart/Cart";
 import Search from "./Search/Search";
 function Header() {
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -28,11 +29,11 @@ function Header() {
       <header className={`mainHeader ${scrolled ? "stickyHeader" : ""}`}>
         <div className="headerContent">
           <ul className="left">
-            <li>Home</li>
+            <li onClick={() => navigate("/")}>Home</li>
             <li>About</li>
             <li>Categories</li>
           </ul>
-          <div className="center">
+          <div className="center" onClick={() => navigate("/")}>
             <p>
               PA<span>Jewellers</span>
             </p>

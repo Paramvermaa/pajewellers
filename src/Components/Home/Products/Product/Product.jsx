@@ -1,16 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Product.scss";
-import prod from "../../../../Assets/My project-2.png";
-import { Link } from "react-router-dom";
-function Product() {
+function Product({ id, data }) {
+  const navigate = useNavigate();
   return (
-    <div className="productCard">
+    <div className="productCard" onClick={() => navigate("/product/" + id)}>
       <div className="thumbnail">
-        <img src={prod} alt="" />
+        <img
+          src={
+            process.env.REACT_APP_DEV_URL + data.Image.data[0].attributes.url
+          }
+          alt=""
+        />
       </div>
       <div className="productDetails">
-        <span className="name">Product Name</span>
-        <span className="price">&#8377;4999</span>
+        <span className="name">{data.Title}</span>
+        <span className="price">&#8377;{(data.Weight * 6112).toFixed(2)}</span>
       </div>
     </div>
   );

@@ -1,19 +1,14 @@
 import React from "react";
 import Product from "./Product/Product";
 import "./Products.scss";
-function Products({ innerPage, headingText }) {
+function Products({ innerPage, headingText, products }) {
   return (
     <div className="productsContainer">
       {!innerPage && <div className="secHeading">{headingText}</div>}
       <div className="products">
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        {products?.data?.map((item) => (
+          <Product key={item.id} id={item.id} data={item.attributes} />
+        ))}
       </div>
     </div>
   );
