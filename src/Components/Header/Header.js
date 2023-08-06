@@ -9,6 +9,7 @@ import "./Header.scss";
 import Cart from "../Cart/Cart";
 import Search from "./Search/Search";
 function Header() {
+  const { cartCount } = useContext(Context);
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [showCart, setShowCart] = useState(false);
@@ -43,7 +44,7 @@ function Header() {
             <AiOutlineHeart />
             <span className="cartIcon" onClick={() => setShowCart(true)}>
               <CgShoppingCart />
-              <span>5</span>
+              {!!cartCount && <span>{cartCount}</span>}
             </span>
           </div>
         </div>

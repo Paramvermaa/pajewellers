@@ -11,7 +11,13 @@ function CartItem() {
       {cartItems.map((item) => (
         <div key={item.id} className="cartProduct">
           <div className="imageContainer">
-            <img src={prod} alt="" />
+            <img
+              src={
+                process.env.REACT_APP_DEV_URL +
+                item.attributes.Image.data[0].attributes.url
+              }
+              alt=""
+            />
           </div>
           <div className="productDetails">
             <span className="name">{item.attributes.Title}</span>
@@ -31,7 +37,9 @@ function CartItem() {
             <div className="text">
               <span>{item.attributes.quantity}</span>
               <span>x</span>
-              <span>&#8377;{(item.attributes.Weight * 6112).toFixed(2)}</span>
+              <span className="highlight">
+                &#8377;{(item.attributes.Weight * 6112).toFixed(2)}
+              </span>
             </div>
           </div>
         </div>

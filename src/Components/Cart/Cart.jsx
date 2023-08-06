@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { MdClose } from "react-icons/md";
 import { BsCartX } from "react-icons/bs";
 import "./Cart.scss";
 import CartItem from "./CartItem/CartItem";
+import { Context } from "../../Utils/Content";
 function Cart({ setShowCart }) {
+  const { cartItems, cartSubTotal } = useContext(Context);
   return (
     <div className="cartPanel">
       Shree Ram
@@ -16,23 +18,27 @@ function Cart({ setShowCart }) {
             <span className="text">close</span>
           </span>
         </div>
-        {/* <div className="emptyCart">
+        {!cartItems?.length && (
+          <div className="emptyCart">
             <BsCartX />
             <span>Np Products in the cart.</span>
             <button className="returnCta">RETURN TO SHOP</button>
-        </div> */}
-        <>
-          <CartItem />
-          <div className="cartFooter">
-            <div className="subtotal">
-              <div className="text">Subtotal</div>
-              <div className="text total">&#8377;4999</div>
-            </div>
-            <div className="button">
-              <button className="checkoutCta">Checkout</button>
-            </div>
           </div>
-        </>
+        )}
+        {!!cartItems?.length && (
+          <>
+            <CartItem />
+            <div className="cartFooter">
+              <div className="subtotal">
+                <div className="text">Subtotal</div>
+                <div className="text total">&#8377;{cartSubTotal}</div>
+              </div>
+              <div className="button">
+                <button className="checkoutCta">Checkout</button>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
